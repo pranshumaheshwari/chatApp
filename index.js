@@ -3,6 +3,7 @@ var express 	   = require('express'),
 	bodyParser 	   = require('body-parser'),
 	methodOverride = require('method-override'),
   app 		       = express(),
+  helmet         = require('helmet'),
   http           = require('http').Server(app),
   io             = require('socket.io')(http);
 
@@ -10,6 +11,7 @@ var express 	   = require('express'),
   app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit: 1000000}));
   app.use(methodOverride("_method"));
   app.use(express.static( __dirname + "/public"));
+  app.use(helmet());
   app.set("view engine","html");
 
 //             ROOT
