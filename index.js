@@ -10,14 +10,19 @@ var express 	   = require('express'),
 //              SETUP
   app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit: 1000000}));
   app.use(methodOverride("_method"));
+	app.use(express.static( __dirname + "/views"));
   app.use(express.static( __dirname + "/public"));
   app.use(helmet());
-  app.set("view engine","html");
 
 //             ROOT
   app.get("/",function(req,res){
-    res.send("<h1>Workinig</h1>");
+    res.send("<h1>Workinig</h1><br><a href='/login' class='btn btn-dark'>Login</a>");
   });
+
+//            LOGIN
+	app.get("/login",function(req,res){
+		res.sendFile( __dirname + "/views/login.html");
+	});
 
 //            LISTEN
   app.listen(3000,function(){

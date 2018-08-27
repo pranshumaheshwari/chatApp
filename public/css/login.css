@@ -1,0 +1,22 @@
+.login-box {
+  border: darkblue 3px solid;
+  text-align: center;
+  margin: 300px auto;
+}
+input {
+  width: 30%;
+}
+#submit {
+  border-radius: 50px;
+  font-family: 'Quicksand', sans-serif;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+::-moz-placeholder {
+  text-align: center;
+}
+:-moz-placeholder {
+  text-align: center;
+}

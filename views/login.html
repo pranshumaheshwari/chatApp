@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <script src="/javascript/socket.io.js"></script>
+    <script src="/javascript/jquery.js"></script>
+  </head>
+  <body>
+    <form class="form" action="/login" method="post">
+      <div class="container jumbotron login-box">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <input type="email" name="email" placeholder="E-Mail" required class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <input type="password" name="password" placeholder="Password" class="form-control">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-success btn-block" id="submit">Login</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
