@@ -12,7 +12,9 @@ var express 	   = require('express'),
   io             = require('socket.io')(http);
 
 var loginRoutes	 = require('./routes/login');
+var friendsRoutes	 = require('./routes/friends');
 app.use(loginRoutes);
+app.use(friendsRoutes);
 
 mongoose.connect('mongodb://localhost/chatApp',{ useNewUrlParser: true });
 app.use(bodyParser.json());

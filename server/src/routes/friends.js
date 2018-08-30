@@ -11,9 +11,10 @@ app.use(methodOverride("_method"));
 app.use(cors());
 app.use(morgan());
 
-const AuthenticationController = require('../controllers/AuthenticationController')
+const FriendsController = require('../controllers/FriendsController');
 
-app.post('/register', AuthenticationController.register);
-app.post('/login',AuthenticationController.login);
+// app.post('/friends', FriendsController.getFriends);
+app.post('/friends/req', FriendsController.sendReq);
+app.post('/friends/req/accept', FriendsController.acceptReq);
 
 module.exports = app

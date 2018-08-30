@@ -14,6 +14,12 @@ var UserSchema = mongoose.Schema({
   },
   name:{
     type: String
+  },
+  friends:{
+    type: [String]
+  },
+  requests:{
+    type: [String]
   }
 });
 

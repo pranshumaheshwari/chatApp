@@ -2,7 +2,7 @@
   <v-toolbar fixed class="cyan" dark>
     <v-toolbar-title class="mr-4" dark>Chat App</v-toolbar-title>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Home</v-btn>
+      <v-btn flat @click="navigateTo({name:'dashboard'})" v-if="$store.state.isUserLoggedIn">DashBoard</v-btn>
     </v-toolbar-items>
       <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
@@ -11,6 +11,9 @@
       </v-btn>
       <v-btn flat @click="navigateTo({name:'register'})" v-if="!$store.state.isUserLoggedIn">
         Sign Up
+      </v-btn>
+      <v-btn flat v-if="$store.state.isUserLoggedIn">
+        {{ $store.state.user.username }}
       </v-btn>
       <v-btn flat @click="logout" v-if="$store.state.isUserLoggedIn">
         Log Out

@@ -11,7 +11,10 @@ module.exports = {
     try{
       const newUser = await new User({
         email:req.body.email,
-        password:req.body.password
+        username: req.body.username,
+        password:req.body.password,
+        friends: [],
+        requests: []
       });
       newUser.save();
       res.send(newUser.toJSON());
@@ -23,14 +26,15 @@ module.exports = {
   },
   async login (req,res) {
     try{
-      const {email,password} = req.body;
-      const user = await User.findOne({email: email});
+      const username = req.body.username;
+      const password = req.body.password;
+      const user = await User.findOne({username: username});
       if(!user){
-        return res.status(403).send({
+        return res.send({
           error: 'The login information is incorrect.'
         });
       }
-      const isPasswordValid = User.comparePassword(password,user.password)
+      const isPasswordValid = password === user.password
       if(!isPasswordValid){
         return res.status(403).send({
           error: 'The login information is incorrect.'
