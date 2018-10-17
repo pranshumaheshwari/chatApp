@@ -24,10 +24,17 @@
                 <p>You dont have any friends.
                 Add some!!</p>
               </v-card-text>
-              <div v-for="friend in friends" :key="friend.username">
-                <v-card-text>
-                  {{ friend }}
-                </v-card-text>
+              <div v-for="friend in friends" :key="friend">
+                <v-layout row wrap>
+                  <router-link :to="{ name: 'chat', params: {username: friend} }">
+                    <v-btn
+                      flat
+                      color="primary"
+                      class="center" >
+                      {{ friend }}
+                    </v-btn>
+                  </router-link>
+                </v-layout>
               </div>
             </v-card>
           </v-flex>
@@ -88,6 +95,7 @@ export default {
       } else {
         this.loadData()
       }
+      this.$router.go(0)
     }
   },
   async mounted () {

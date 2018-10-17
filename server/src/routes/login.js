@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit: 1000000}));
 app.use(methodOverride("_method"));
 app.use(cors());
-app.use(morgan());
+app.use(morgan('combined'));
 
 const AuthenticationController = require('../controllers/AuthenticationController')
 

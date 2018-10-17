@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import DashBoard from '@/components/DashBoard'
 import AddFriend from '@/components/AddFriend'
+import Chat from '@/components/Chat'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/friend/add',
       name: 'addfriend',
       component: AddFriend
+    },
+    {
+      path: '/chat/:username',
+      name: 'chat',
+      component: Chat
     }
   ]
 })

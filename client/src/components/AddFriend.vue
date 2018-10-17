@@ -54,8 +54,14 @@ export default {
       })
       if (response.data.error) {
         this.error = response.data.error
+        setTimeout(() => {
+          this.error = null
+        }, 3000)
       } else {
         this.success_msg = response.data.success_msg
+        setTimeout(() => {
+          this.success_msg = null
+        }, 3000)
       }
     }
   }
